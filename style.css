@@ -1,7 +1,78 @@
+body {
+  background: linear-gradient(145deg, #fff1f2 0%, #fdf2f8 48%, #fff7ed 100%) fixed;
+}
+
+.app-shell {
+  border: 1px solid #fce7f3;
+  border-radius: 1.75rem;
+  box-shadow: 0 20px 55px rgb(190 120 145 / 14%);
+}
+
 #progress-fill {
   transition: width 0.3s ease;
 }
 
 .todo-text {
   overflow-wrap: anywhere;
+}
+
+.todo-item {
+  position: relative;
+  border-color: #fce7f3;
+  background: #fffdfd;
+  border-radius: 1rem;
+}
+
+.todo-date {
+  color: #be567b;
+  font-size: 0.75rem;
+}
+
+.delete-dialog {
+  width: min(24rem, calc(100% - 2rem));
+  max-width: none;
+  padding: 0;
+  border: 1px solid #fbcfe8;
+  border-radius: 1.5rem;
+  background: #fffdfd;
+  box-shadow: 0 24px 70px rgb(88 40 65 / 25%);
+}
+
+.delete-dialog::backdrop {
+  background: rgb(65 35 50 / 42%);
+  backdrop-filter: blur(3px);
+}
+
+.delete-dialog__content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.confetti-piece {
+  position: fixed;
+  z-index: 10;
+  width: 0.45rem;
+  height: 0.7rem;
+  border-radius: 2px;
+  pointer-events: none;
+  background: var(--confetti-color);
+  animation: confetti-burst 700ms ease-out forwards;
+}
+
+@keyframes confetti-burst {
+  to {
+    opacity: 0;
+    transform: translate(var(--confetti-x), var(--confetti-y)) rotate(300deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
