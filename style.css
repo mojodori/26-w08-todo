@@ -1,0 +1,7 @@
+#progress-fill {
+  transition: width 0.3s ease;
+}
+
+.todo-text {
+  overflow-wrap: anywhere;
+}
