@@ -146,7 +146,7 @@ function createTodoElement(todo) {
 
   const deleteButton = document.createElement("button");
   deleteButton.className =
-    "min-h-11 min-w-11 shrink-0 rounded-lg px-2 text-sm font-medium text-red-600 transition hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500";
+    "min-h-11 min-w-11 shrink-0 rounded-lg border border-red-300 px-2 text-sm font-medium text-red-600 transition hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500";
   deleteButton.type = "button";
   deleteButton.textContent = "삭제";
   deleteButton.setAttribute("aria-label", `${todo.text} 삭제`);
@@ -165,6 +165,8 @@ function updateFilters() {
     const isActive = button.dataset.filter === activeFilter;
     button.setAttribute("aria-pressed", String(isActive));
     button.classList.toggle("bg-indigo-600", isActive);
+    button.classList.toggle("border-indigo-600", isActive);
+    button.classList.toggle("border-slate-300", !isActive);
     button.classList.toggle("text-white", isActive);
     button.classList.toggle("text-slate-600", !isActive);
     button.classList.toggle("hover:bg-slate-100", !isActive);
